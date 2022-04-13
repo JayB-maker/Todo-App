@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --color-blue: #0c0023;
+    --color-red: red;
+    --color-white: #f9f9f9;
+    --color-black: #000;
+    --color-ash: #606060;
+
+    --transition: 400ms;
+}
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-ash);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //justify-items: center;
+
+    .wrapper{
+        height: 30vh;
+        width: fit-content;
+        position: relative;
+        top: 10%;
+        color: var(--color-white);
+
+        header{
+            h1{
+                font-size: 2rem;
+                padding-bottom: 1rem;
+            }
+
+            .container{
+                input{
+                    background: var(--color-black);
+                    padding: 0.6rem 1rem;
+                    width: 30rem;
+                    color: var(--color-white);
+                    border-radius: 0.8rem;
+                    margin-right: 1rem;
+
+                    &::placeholder{
+                        color: var(--color-ash);
+                    }
+                }
+
+                button{
+                    background: linear-gradient(to right,
+                        var(--color-red), 
+                        var(--color-blue));
+                    font-weight: bold;
+                    color: red;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-size: 0.8rem;
+                    transition: var(--transition);
+                    cursor: pointer;
+
+                    &:hover{
+                        opacity: 70%;
+                    }
+                }
+            }
+        }
+
+        section{
+            margin-top: 5rem;
+
+            h1{
+                font-size: 2rem;
+                padding-bottom: 1rem;
+            }
+
+            .container{
+                margin-bottom: 1rem;
+                background: var(--color-black);
+                padding: 0.6rem 1rem;
+                border-radius: 0.8rem;
+                display: flex;
+                gap: 1rem;
+
+                input{
+                    background: none;
+                    color: var(--color-white);
+                    flex: 1 1 0%;
+                }
+
+                input:not(:read-only){
+                    background: none;
+                    color: var(--color-red);
+                    flex: 1 1 0%;
+                }
+
+                button{
+                    background: none;
+                    color: red;
+                    font-weight: bold;
+                }
+
+                button.edit{
+                    background: linear-gradient(to right,
+                        var(--color-red), 
+                        var(--color-white)
+                    );
+                    color: red;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-size: 0.8rem;
+                    transition: var(--transition);
+                    cursor: pointer;
+
+                    &:hover{
+                        opacity: 70%;
+                    }
+                }
+
+                button.delete{
+                    font-size: 0.8rem;
+                    cursor: pointer;
+                    transition: var(--transition);
+
+                    &:hover{
+                        opacity: 70%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --color-blue: #0c0023;
+  --color-red: red;
+  --color-white: #f9f9f9;
+  --color-black: #000;
+  --color-ash: #606060;
+  --transition: 400ms;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-ash);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .wrapper {
+  height: 30vh;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  top: 10%;
+  color: var(--color-white);
+}
+
+body .wrapper header h1 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+body .wrapper header .container input {
+  background: var(--color-black);
+  padding: 0.6rem 1rem;
+  width: 30rem;
+  color: var(--color-white);
+  border-radius: 0.8rem;
+  margin-right: 1rem;
+}
+
+body .wrapper header .container input::-webkit-input-placeholder {
+  color: var(--color-ash);
+}
+
+body .wrapper header .container input:-ms-input-placeholder {
+  color: var(--color-ash);
+}
+
+body .wrapper header .container input::-ms-input-placeholder {
+  color: var(--color-ash);
+}
+
+body .wrapper header .container input::placeholder {
+  color: var(--color-ash);
+}
+
+body .wrapper header .container button {
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-blue)));
+  background: linear-gradient(to right, var(--color-red), var(--color-blue));
+  font-weight: bold;
+  color: red;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.8rem;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+body .wrapper header .container button:hover {
+  opacity: 70%;
+}
+
+body .wrapper section {
+  margin-top: 5rem;
+}
+
+body .wrapper section h1 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+body .wrapper section .container {
+  margin-bottom: 1rem;
+  background: var(--color-black);
+  padding: 0.6rem 1rem;
+  border-radius: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+body .wrapper section .container input {
+  background: none;
+  color: var(--color-white);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+body .wrapper section .container input:not(:-moz-read-only) {
+  background: none;
+  color: var(--color-red);
+  flex: 1 1 0%;
+}
+
+body .wrapper section .container input:not(:read-only) {
+  background: none;
+  color: var(--color-red);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+body .wrapper section .container button {
+  background: none;
+  color: red;
+  font-weight: bold;
+}
+
+body .wrapper section .container button.edit {
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-white)));
+  background: linear-gradient(to right, var(--color-red), var(--color-white));
+  color: red;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.8rem;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+body .wrapper section .container button.edit:hover {
+  opacity: 70%;
+}
+
+body .wrapper section .container button.delete {
+  font-size: 0.8rem;
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+body .wrapper section .container button.delete:hover {
+  opacity: 70%;
+}
+/*# sourceMappingURL=style.css.map */
