@@ -1,52 +1,49 @@
 let acceptTodo = document.getElementById('accept-todo')
-    todo = document.getElementById('todos')
-    submit = document.getElementById('submit');
+    submitButton = document.getElementById('submit')
+    todoWrapper = document.getElementById('todos');
 
-    
-    
-    submit.addEventListener('click', (e) => {
+    submitButton.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if(!acceptTodo.value){
-            alert('Add a Todo');
+        if (acceptTodo.value == '') {
+            alert('Please add a todo');
             return;
         }
 
         else{
-            let todoList = document.createElement('div');
-            todoList.classList.add('container');
-            todo.appendChild(todoList);
+            let todoContainer = document.createElement('div');
+            todoContainer.classList.add('container');
+            todoWrapper.appendChild(todoContainer);
 
-            let todoo = document.createElement('input');
-            todoo.setAttribute("readOnly", "readOnly");
-            todoList.appendChild(todoo);
-            todoo.value = acceptTodo.value;
+            let todoElement = document.createElement('input');
+            todoElement.setAttribute("readOnly", "readOnly");
+            todoElement.value = acceptTodo.value;
+            todoContainer.appendChild(todoElement);
 
             let editButton = document.createElement('button');
             editButton.classList.add('edit');
             editButton.innerHTML = 'EDIT';
-            todoList.appendChild(editButton);
+            todoContainer.appendChild(editButton);
 
             let deleteButton = document.createElement('button');
             deleteButton.classList.add('delete');
             deleteButton.innerHTML = 'DELETE';
-            todoList.appendChild(deleteButton);
+            todoContainer.appendChild(deleteButton);
 
             editButton.addEventListener('click', () => {
-                if (editButton.innerHTML == "EDIT") {
-                    todoo.removeAttribute("readOnly");
-                    editButton.innerText = "SAVE";
+                if((editButton.innerHTML).toLowerCase() == 'edit'){
+                    todoElement.removeAttribute("readOnly");
+                    editButton.innerHTML = "SAVE";
                 }
 
-                else {
-                    todoo.setAttribute("readOnly", "readOnly");
-                    editButton.innerText = "EDIT";
+                else{
+                    todoElement.setAttribute("readOnly", "readOnly");
+                    editButton.innerHTML = 'EDIT';
                 }
-                
             })
 
             deleteButton.addEventListener('click', () => {
-                todo.removeChild(todoList);
+                todoWrapper.removeChild(todoContainer);
             })
         }
     })
