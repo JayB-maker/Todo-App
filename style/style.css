@@ -122,17 +122,24 @@ body .wrapper section .container input {
 }
 
 body .wrapper section .container input:not(:-moz-read-only) {
-  background: none;
-  color: var(--color-red);
   flex: 1 1 0%;
+  background: linear-gradient(to right, var(--color-red), var(--color-blue));
+  font-weight: bold;
+  color: red;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body .wrapper section .container input:not(:read-only) {
-  background: none;
-  color: var(--color-red);
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0%;
           flex: 1 1 0%;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-blue)));
+  background: linear-gradient(to right, var(--color-red), var(--color-blue));
+  font-weight: bold;
+  color: red;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body .wrapper section .container button {
@@ -166,5 +173,31 @@ body .wrapper section .container button.delete {
 
 body .wrapper section .container button.delete:hover {
   opacity: 70%;
+}
+
+@media screen and (max-width: 1024px) {
+  body .wrapper {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  body .wrapper header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body .wrapper {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  body .wrapper header h1 {
+    font-size: 1.5rem;
+  }
+  body .wrapper header .container input {
+    width: 18rem;
+    margin-right: 0.5rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
