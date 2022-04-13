@@ -9,11 +9,11 @@
 }
 
 :root{
-    --color-blue: #0c0023;
-    --color-red: red;
+    --color-blue: #4b0082;
+    --color-red: #e9118f;
     --color-white: #f9f9f9;
     --color-black: #000;
-    --color-ash: #606060;
+    --color-ash: #959494;
 
     --transition: 400ms;
 }
@@ -24,13 +24,19 @@ body{
     text-align: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-ash);
+    background: linear-gradient(to right,
+        var(--color-red),
+        var(--color-blue),
+        var(--color-blue),
+        var(--color-blue)
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
     //justify-items: center;
 
     .wrapper{
+        //background: var(--color-white);
         height: 30vh;
         width: fit-content;
         position: relative;
@@ -38,14 +44,25 @@ body{
         color: var(--color-white);
 
         header{
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 1rem 1rem 0 0;
             h1{
-                font-size: 2rem;
+                color: var(--color-blue);
+                font-weight: bolder;
+                background: linear-gradient(to right,
+                    var(--color-red),
+                    var(--color-blue)
+                );
+                font-size: 1.5rem;
                 padding-bottom: 1rem;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
 
             .container{
                 input{
-                    background: var(--color-black);
+                    background: var(--color-blue);
                     padding: 0.6rem 1rem;
                     width: 30rem;
                     color: var(--color-white);
@@ -77,16 +94,27 @@ body{
         }
 
         section{
-            margin-top: 5rem;
+            background: var(--color-white);
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 0 0 1rem 1rem;
 
             h1{
-                font-size: 2rem;
+                color: var(--color-blue);
+                font-weight: bolder;
+                background: linear-gradient(to right,
+                    var(--color-red),
+                    var(--color-blue)
+                );
+                font-size: 1.5rem;
                 padding-bottom: 1rem;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
 
             .container{
                 margin-bottom: 1rem;
-                background: var(--color-black);
+                background: var(--color-blue);
                 padding: 0.6rem 1rem;
                 border-radius: 0.8rem;
                 display: flex;
@@ -100,13 +128,7 @@ body{
 
                 input:not(:read-only){
                     flex: 1 1 0%;
-                    background: linear-gradient(to right,
-                        var(--color-red), 
-                        var(--color-blue));
-                    font-weight: bold;
-                    color: red;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                    color: var(--color-ash);
                 }
 
                 button{
@@ -116,13 +138,7 @@ body{
                 }
 
                 button.edit{
-                    background: linear-gradient(to right,
-                        var(--color-red), 
-                        var(--color-white)
-                    );
-                    color: red;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                    color: var(--color-white);
                     font-size: 0.8rem;
                     transition: var(--transition);
                     cursor: pointer;
@@ -133,6 +149,7 @@ body{
                 }
 
                 button.delete{
+                    color: var(--color-red);
                     font-size: 0.8rem;
                     cursor: pointer;
                     transition: var(--transition);
@@ -164,11 +181,13 @@ body{
 
 @media screen and (max-width: 600px){
     body{
+        background: var(--color-blue);
         .wrapper{
             height: fit-content;
 
 
             header{
+                padding: 0.6rem;
                 h1{
                     font-size: 1.5rem;
                 }

@@ -4,6 +4,7 @@ let acceptTodo = document.getElementById('accept-todo')
 
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
+        saveToLocalStorage
 
         if (acceptTodo.value == '') {
             alert('Please add a todo');
@@ -47,3 +48,7 @@ let acceptTodo = document.getElementById('accept-todo')
             })
         }
     })
+
+    let saveToLocalStorage = () =>{
+        localStorage.setItem('letter', todoElement);
+    }

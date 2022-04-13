@@ -10,11 +10,11 @@
 }
 
 :root {
-  --color-blue: #0c0023;
-  --color-red: red;
+  --color-blue: #4b0082;
+  --color-red: #e9118f;
   --color-white: #f9f9f9;
   --color-black: #000;
-  --color-ash: #606060;
+  --color-ash: #959494;
   --transition: 400ms;
 }
 
@@ -23,7 +23,8 @@ body {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-ash);
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), color-stop(var(--color-blue)), color-stop(var(--color-blue)), to(var(--color-blue)));
+  background: linear-gradient(to right, var(--color-red), var(--color-blue), var(--color-blue), var(--color-blue));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,13 +47,25 @@ body .wrapper {
   color: var(--color-white);
 }
 
+body .wrapper header {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
 body .wrapper header h1 {
-  font-size: 2rem;
+  color: var(--color-blue);
+  font-weight: bolder;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-blue)));
+  background: linear-gradient(to right, var(--color-red), var(--color-blue));
+  font-size: 1.5rem;
   padding-bottom: 1rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body .wrapper header .container input {
-  background: var(--color-black);
+  background: var(--color-blue);
   padding: 0.6rem 1rem;
   width: 30rem;
   color: var(--color-white);
@@ -94,17 +107,26 @@ body .wrapper header .container button:hover {
 }
 
 body .wrapper section {
-  margin-top: 5rem;
+  background: var(--color-white);
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 body .wrapper section h1 {
-  font-size: 2rem;
+  color: var(--color-blue);
+  font-weight: bolder;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-blue)));
+  background: linear-gradient(to right, var(--color-red), var(--color-blue));
+  font-size: 1.5rem;
   padding-bottom: 1rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body .wrapper section .container {
   margin-bottom: 1rem;
-  background: var(--color-black);
+  background: var(--color-blue);
   padding: 0.6rem 1rem;
   border-radius: 0.8rem;
   display: -webkit-box;
@@ -123,23 +145,14 @@ body .wrapper section .container input {
 
 body .wrapper section .container input:not(:-moz-read-only) {
   flex: 1 1 0%;
-  background: linear-gradient(to right, var(--color-red), var(--color-blue));
-  font-weight: bold;
-  color: red;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-ash);
 }
 
 body .wrapper section .container input:not(:read-only) {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0%;
           flex: 1 1 0%;
-  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-blue)));
-  background: linear-gradient(to right, var(--color-red), var(--color-blue));
-  font-weight: bold;
-  color: red;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-ash);
 }
 
 body .wrapper section .container button {
@@ -149,11 +162,7 @@ body .wrapper section .container button {
 }
 
 body .wrapper section .container button.edit {
-  background: -webkit-gradient(linear, left top, right top, from(var(--color-red)), to(var(--color-white)));
-  background: linear-gradient(to right, var(--color-red), var(--color-white));
-  color: red;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-white);
   font-size: 0.8rem;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -165,6 +174,7 @@ body .wrapper section .container button.edit:hover {
 }
 
 body .wrapper section .container button.delete {
+  color: var(--color-red);
   font-size: 0.8rem;
   cursor: pointer;
   -webkit-transition: var(--transition);
@@ -187,10 +197,16 @@ body .wrapper section .container button.delete:hover {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    background: var(--color-blue);
+  }
   body .wrapper {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+  }
+  body .wrapper header {
+    padding: 0.6rem;
   }
   body .wrapper header h1 {
     font-size: 1.5rem;
