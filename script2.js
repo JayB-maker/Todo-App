@@ -1,17 +1,7 @@
 let todoBox;
 let todoContaier = document.getElementById("todos");
 
-const savedTodo = JSON.parse(localStorage.getItem("letter"));
-
-if(Array.isArray(savedTodo)) {
-    todoBox = savedTodo;
-    render();
-}
-
-else{
-    todoBox = [];
-}
-
+// PUSHING THE VALUE IN OUR TEXTBOX INTO AN ARRAY
 function addTodo() {
     let acceptTodo = (document.getElementById('accept-todo')).value;
     let id = "" + new Date().getTime();
@@ -25,12 +15,14 @@ function addTodo() {
         todoBox.push({todoName: acceptTodo,
                       id : id}
         );
-        
+
         render();
         saveToLocalStorage();
     }
 }
+//--------------------------------------------------------------------------------------
 
+//FUNCTION THAT CONTROL THE DELETE BUTTON
 function deleteTodo(event) {
 
     let todList = event.target;
@@ -47,7 +39,9 @@ function deleteTodo(event) {
     render();
     saveToLocalStorage();
 }
+//---------------------------------------------------------------------------------------
 
+//FUNCTION THAT DISPLAY THE TODOS
 function render() {
     todoContaier.innerHTML = "";
 
@@ -68,7 +62,23 @@ function render() {
         deleteButton.onclick = deleteTodo;
     }) 
 }
+//----------------------------------------------------------------------------------
 
+//CONVERTING AN ARRAY TO A STRING AND STORING IT IN A LOCALSTORAGE
 function saveToLocalStorage() {
     localStorage.setItem("letter", JSON.stringify(todoBox));    
 }
+//----------------------------------------------------------------------------------
+
+// ACCESSING LOCALSTORAGE AND CONVERTING IT TO AN ARRAY FROM STRING
+const savedTodo = JSON.parse(localStorage.getItem("letter"));
+
+if(Array.isArray(savedTodo)) {
+    todoBox = savedTodo;
+    render();
+}
+
+else{
+    todoBox = [];
+}
+//------------------------------------------------------------------------
