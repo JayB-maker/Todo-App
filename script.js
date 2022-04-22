@@ -2,53 +2,54 @@ let acceptTodo = document.getElementById('accept-todo')
     submitButton = document.getElementById('submit')
     todoWrapper = document.getElementById('todos');
 
+    function removeAllChildNodes(parent) {
+    
+        console.log("parent", parent);
+
+        parent.textContent = "";
+    }
+
+    function getTodoElements() {
+        let todoItems = getLocalStorage();
+        let todoElements = localStorage.getItem("letter");
+        let todoContainer = document.createElement('div');
+            todoContainer.classList.add('container');
+            todoWrapper.appendChild(todoContainer);
+
+            todoItems.map ( (eachItem, key) => {
+
+            let todoElement = document.createElement('input');
+                todoElement.setAttribute("readOnly", "readOnly");
+                todoElement.value = eachItem.itemName;
+                todoContainer.appendChild(todoElement);
+            })
+    }
+
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
-        saveToLocalStorage
 
-        if (acceptTodo.value == '') {
+        if (acceptTodo.value === '') {
             alert('Please add a todo');
             return;
         }
 
         else{
-            let todoContainer = document.createElement('div');
-            todoContainer.classList.add('container');
-            todoWrapper.appendChild(todoContainer);
 
-            let todoElement = document.createElement('input');
-            todoElement.setAttribute("readOnly", "readOnly");
-            todoElement.value = acceptTodo.value;
-            todoContainer.appendChild(todoElement);
-
-            let editButton = document.createElement('button');
-            editButton.classList.add('edit');
-            editButton.innerHTML = 'EDIT';
-            todoContainer.appendChild(editButton);
-
-            let deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete');
-            deleteButton.innerHTML = 'DELETE';
-            todoContainer.appendChild(deleteButton);
-
-            editButton.addEventListener('click', () => {
-                if((editButton.innerHTML).toLowerCase() == 'edit'){
-                    todoElement.removeAttribute("readOnly");
-                    editButton.innerHTML = "SAVE";
-                }
-
-                else{
-                    todoElement.setAttribute("readOnly", "readOnly");
-                    editButton.innerHTML = 'EDIT';
-                }
-            })
-
-            deleteButton.addEventListener('click', () => {
-                todoWrapper.removeChild(todoContainer);
-            })
+            let newTodoItem = {itemName:acceptTodo.value, createdDate:new Date()}
+            saveToLocalStorage(newTodoItem);
+            console.log(getLocalStorage());
+            getTodoElements();
         }
     })
 
-    let saveToLocalStorage = () =>{
-        localStorage.setItem('letter', todoElement);
+    const saveToLocalStorage = (newTodoItem) =>{
+    let getItems = localStorage.getItem("letter") ? JSON.parse(localStorage.getItem("letter")): [ ];
+    getItems.push(newTodoItem);
+    localStorage.setItem('letter',JSON.stringify(getItems));
+
+    }
+
+    function getLocalStorage() {
+        let getItems = localStorage.getItem("letter") ? JSON.parse(localStorage.getItem("letter")): [ ];
+            return getItems;
     }
